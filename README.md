@@ -2,6 +2,10 @@
 
 LaTeX resume based on the Jake Gutierrez template.
 
+## PDF
+
+[Download the latest PDF](CV-Rafael_Ode_Brino.pdf)
+
 ## Build (local)
 
 ```sh
@@ -16,8 +20,8 @@ pdflatex CV-Rafael_Ode_Brino.tex
 
 ## Notes
 
-- The PDF is not tracked in this repository.
-- This repo keeps the LaTeX source and supporting files only.
+- The PDF is tracked in this repository for convenience.
+- This repo keeps the LaTeX source and supporting files as the source of truth.
 - GitHub Actions builds the PDF on every push and pull request.
 
 ## License
