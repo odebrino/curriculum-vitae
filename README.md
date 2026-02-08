@@ -6,6 +6,8 @@ LaTeX resume based on the Jake Gutierrez template.
 
 [Download the latest PDF](CV-Rafael_Ode_Brino.pdf)
 
+![CV preview](CV-Rafael_Ode_Brino.png)
+
 ## Build (local)
 
 ```sh
