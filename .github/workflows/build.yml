@@ -1,0 +1,25 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV-Rafael_Ode_Brino.tex
+          args: -pdf -interaction=nonstopmode -file-line-error
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: CV-Rafael_Ode_Brino
+          path: CV-Rafael_Ode_Brino.pdf
