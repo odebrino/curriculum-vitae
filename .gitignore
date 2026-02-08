@@ -1,0 +1,20 @@
+# Build output
+out/
+
+# LaTeX aux files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/

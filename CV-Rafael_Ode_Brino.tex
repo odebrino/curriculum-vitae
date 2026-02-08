@@ -1,0 +1,184 @@
+%-------------------------
+% Resume in LaTeX (Jake Gutierrez template)
+% Rafael Ode Brino (edited)
+%-------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins (template style)
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% ATS / machine readable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands (template)
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Rafael Ode Brino} \\ \vspace{2pt}
+    \small Brest, France $|$ Dual nationality: German \& Brazilian \\ \vspace{2pt}
+    \small +33 7 45 75 03 71 $|$
+    \mbox{\href{mailto:rafael.ode\_brino@ensta.fr}{\underline{\nolinkurl{rafael.ode_brino@ensta.fr}}}}$|$
+    \href{https://linkedin.com/in/odebrino}{\underline{linkedin.com/in/odebrino}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {ENSTA --- National School of Advanced Techniques}{Brest, France}
+    {Engineering Degree --- Observation Systems \& AI (expected 2027)}{2025 -- Present}
+    \resumeItemListStart
+      \resumeItem{Coursework: Artificial Intelligence \& Decision Support.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Federal University of Rio Grande do Sul (UFRGS)}{Porto Alegre, RS, Brazil}
+    {Double degree --- BSc in Electrical Engineering (expected 2028)}{2023 -- Present}
+    \resumeItemListStart
+      \resumeItem{Coursework: Signals and Systems.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+  {\textbf{Augmented Reality Simulation for Medical Training (ENSTA)} $|$ \emph{C\#, C++, Python}}{2025 -- Present}
+  \resumeItemListStart
+    \resumeItem{Designed a real-time perception pipeline for tracking and image analysis; trained and validated ML components in Python (PyTorch).}
+    \resumeItem{Developed native C++ modules for real-time 6D pose estimation/tracking prototypes and integrated them into Unity as a native plugin via C\# interop (bindings), iterating through testing to improve runtime stability and robustness.}
+  \resumeItemListEnd
+
+
+  \resumeProjectHeading
+    {\textbf{Waveforms \& Modulations (ENSTA)} $|$ \emph{MATLAB, Signal Processing}}{Jan.\ 2026}
+    \resumeItemListStart
+      \resumeItem{Simulated an end-to-end digital transmission chain (OOK \& DSSS) over an AWGN channel and measured BER across operating conditions.}
+      \resumeItem{Built reusable modules for modulation/demodulation, spectral analysis (FFT/fftshift), and BER evaluation.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Mass Estimation via Computer Vision (UFRGS)} $|$ \emph{Python, PyTorch, OpenCV}}{2024 -- 2025}
+    \resumeItemListStart
+      \resumeItem{Built a supervised regression model to estimate object mass from images; created the dataset and applied advanced preprocessing.}
+      \resumeItem{Performed evaluation and error analysis to improve stability and reproducibility.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Forest Mapping with Detection and SLAM (UFRGS)} $|$ \emph{Python, OpenCV}}{2024 -- 2025}
+    \resumeItemListStart
+      \resumeItem{Implemented a 3D mapping pipeline combining stereo visual odometry, 3D triangulation, and EKF-SLAM.}
+      \resumeItem{Validated tracking stability and trajectory accuracy across multiple scenarios under near-embedded constraints.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Professional Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Project Contributor}{2024 -- 2025}
+    {AgroView (Startup)}{Porto Alegre, RS, Brazil}
+    \resumeItemListStart
+      \resumeItem{Built a computer vision prototype for early detection of stress and deterioration in lettuce plants (Python, OpenCV).}
+      \resumeItem{Improved prediction reliability through experimental validation in real conditions and iterative pipeline refinement.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Volunteer}{2019 -- 2025}
+    {High School (CEAT)}{Lajeado, RS, Brazil}
+    \resumeItemListStart
+      \resumeItem{President (2022): Led the organization of the school’s annual Gincana—a student-run competition that builds leadership and organizational skills through theoretical and hands-on challenges—and, as a result, it enables yearly food and hygiene donation drives that exceed half a ton, as well as large-scale blood donation campaigns.}
+
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Programming}{: Python, MATLAB, C, C++, C\#, Java} \\
+    \textbf{Computer Vision \& ML}{: YOLO (detection/segmentation/training), OpenCV (image processing, tracking), Vision Transformers, supervised regression} \\
+    \textbf{Signal Processing}{: OOK, DSSS, AWGN, FFT/fftshift spectral analysis, BER evaluation} \\
+    \textbf{SLAM \& Estimation}{: stereo visual odometry, 3D triangulation, EKF-SLAM, sensor fusion} \\
+    \textbf{Tools}{: Unity, Git/GitHub, Linux, Bash, LaTeX, Jupyter, VS Code, PyCharm, CLion, Rider}
+  }}
+\end{itemize}
+
+%-----------LANGUAGES-----------
+\section{Languages}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    English: Bilingual - Fluent \ $|$ French: Advanced \ $|$ German: Elementary \ $|$ Portuguese: Native
+  }}
+\end{itemize}
+
+
+
+
+
+\end{document}
