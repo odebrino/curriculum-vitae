@@ -1,179 +1,217 @@
-%-------------------------
-% Resume in LaTeX (Jake Gutierrez template)
-% Rafael Ode Brino (edited)
-%-------------------------
+% Default CV adapted from the CERN STAG 2026 PDF layout, 24 October 2026.
+% NATO bullets selected from Shared/Professional Experience/NATO CMRE evidence.
+% Graduation months and project context updated at the candidate's request.
+% Google coursework review, 24 October 2026: candidate confirms taking all
+% courses in the supplied SOIA and UFRGS curricula. English course labels
+% translate those PDFs; selected for ML/research and software engineering.
+% Build from this directory: latexmk -pdf -outdir=/tmp/default-cv-build Rafael_Ode_Brino_CV.tex
 
+\DocumentMetadata{lang=en-US,pdfversion=1.7,tagging=on}
 \documentclass[a4paper,11pt]{article}
-
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,left=13mm,right=13mm,top=12mm,bottom=13mm]{geometry}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
+\usepackage[american]{babel}
+\usepackage{microtype}
 \input{glyphtounicode}
+\pdfgentounicode=1
 
-% Adjust margins (template style)
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+% Snapshot of contact and degree values for a self-contained, editable CV.
+% Shared rendering values used by the CV and CL templates.
+% Factual reference: Profile.md. Keep these values consistent with that note.
+\newcommand{\CandidateName}{Rafael Ode Brino}
+\newcommand{\CandidateLocation}{Brest, France}
+\newcommand{\CandidatePhone}{+33 7 45 75 03 71}
+\newcommand{\CandidatePhoneURL}{tel:+33745750371}
+\newcommand{\CandidateEmail}{rafael.ode_brino@ensta.fr}
+\newcommand{\CandidateEmailText}{rafael.ode\_brino@ensta.fr}
+\newcommand{\CandidateLinkedInURL}{https://linkedin.com/in/odebrino}
+\newcommand{\CandidateLinkedInText}{linkedin.com/in/odebrino}
+\newcommand{\CandidateGitHubURL}{https://github.com/odebrino}
+\newcommand{\CandidateGitHubText}{github.com/odebrino}
+\newcommand{\CandidateCitizenship}{German \& Brazilian}
+\newcommand{\CandidateAvailability}{a six-month ENSTA final-year research internship starting in March 2027}
 
+% Shared rendering values. Factual reference: Education.md.
+% Programme PDFs are curricula, not personal transcripts.
+\newcommand{\CandidateSchool}{ENSTA}
+\newcommand{\CandidateSchoolGroup}{Institut Polytechnique de Paris}
+\newcommand{\CandidateSchoolLocation}{Brest, France}
+\newcommand{\CandidateSchoolDescription}{French graduate engineering school}
+\newcommand{\CandidateDegree}{MSc in Engineering}
+\newcommand{\CandidateSpecialization}{Observation Systems \& Artificial Intelligence}
+\newcommand{\CandidateSpecializationProse}{Observation Systems and Artificial Intelligence}
+\newcommand{\CandidateSchoolDates}{2025--2027}
+\newcommand{\CandidateSchoolGraduation}{September 2027}
+\newcommand{\CandidateBachelorsSchool}{Federal University of Rio Grande do Sul (UFRGS)}
+\newcommand{\CandidateBachelorsLocation}{Porto Alegre, Brazil}
+\newcommand{\CandidateBachelorsDegree}{BSc in Electrical Engineering}
+\newcommand{\CandidateBachelorsDates}{2023--2028}
+\newcommand{\CandidateBachelorsGraduation}{August 2028}
+
+
+% Match the supplied CV: A4, serif type, one column, ruled headings.
+\pagestyle{empty}
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+% Use a consistent baseline, then separate titles, bullets and sections.
+\makeatletter
+\renewcommand\small{\@setfontsize\small{10.2}{13.6}}
+\makeatother
 
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% ATS / machine readable
-\pdfgentounicode=1
-
-%-------------------------
-% Custom commands (template)
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+\hypersetup{
+  pdftitle={\CandidateName\space - Curriculum Vitae},
+  pdfauthor={\CandidateName},
+  pdfsubject={Machine Learning and Scientific Computing}
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+% Native sectioning supports structured PDF headings and avoids titlesec's
+% incompatibility with automatic tagging. Keep the same restrained ruled style.
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{0pt}{9pt}{3pt}%
+  {\normalfont\large\scshape\raggedright}}
+\makeatother
+\newcommand{\cvSection}[1]{%
+  \section*{#1}\nobreak\vspace{-2pt}\hrule\nobreak\vspace{6pt}}
+
+% Layout helpers. Edit content below rather than spacing in individual entries.
+\newcommand{\cvItem}[1]{\item #1\par}
+\newcommand{\cvEntry}[4]{%
+  \item
+  \textbf{#1}\hfill #2\par\nobreak
+  {\small\textit{#3}\hfill\textit{#4}\par}
 }
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+\newcommand{\cvEducationEntry}[5]{%
+  \item
+  \textbf{#1}\hfill #2\par\nobreak
+  {\small\textit{#3}\hfill\textit{#4}\par\nobreak
+  #5\par}
 }
+\newcommand{\cvProject}[2]{%
+  \item
+  {\small #1\hfill #2\par}
+}
+\renewcommand\labelitemii{\textbullet}
+\newenvironment{cvEntries}
+  {\begin{itemize}[left-margin=0.15in,item-label={},begin-vspace=0pt,
+    begin-extra-vspace=0pt,item-vspace=6pt,para-vspace=0pt]}{\end{itemize}}
+\newenvironment{cvBullets}
+  {\small\begin{itemize}[left-margin=0.18in,begin-vspace=3pt,
+    begin-extra-vspace=0pt,item-vspace=3pt,para-vspace=0pt]}{\end{itemize}}
 
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+% Each manuscript is a separate group. Its bullets sit to the right of its
+% heading; addvspace supplies a visible break before the next manuscript.
+% Reset cvarticle to zero when adding a different employer's manuscripts.
+\newcounter{cvarticle}
+\newenvironment{cvArticle}[2][in preparation for submission]{%
+  \par\addvspace{6pt}\stepcounter{cvarticle}%
+  {\small\hspace*{0.12in}\textbf{Article \arabic{cvarticle}: #2}
+    \textit{(#1)}\par}%
+  \small\begin{itemize}[left-margin=0.34in,item-label=\textbullet,
+    begin-vspace=3pt,item-vspace=3pt,para-vspace=0pt]
+}{\end{itemize}}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+% Project-sourced skills: one spaced list item per category.
+\newenvironment{cvSkills}
+  {\small\begin{itemize}[left-margin=0.15in,item-label={},begin-vspace=2pt,
+    begin-extra-vspace=0pt,item-vspace=2pt,para-vspace=0pt]}{\end{itemize}}
+\newcommand{\cvSkill}[2]{\item \textbf{#1:} #2}
 
-%-------------------------
 \begin{document}
 
-%----------HEADING----------
+% CONTACT ---------------------------------------------------------------
 \begin{center}
-    \textbf{\Huge \scshape Rafael Ode Brino} \\ \vspace{2pt}
-    \small Brest, France $|$ Dual nationality: German \& Brazilian \\ \vspace{2pt}
-    \small +33 7 45 75 03 71 $|$
-    \mbox{\href{mailto:rafael.ode\_brino@ensta.fr}{\underline{\nolinkurl{rafael.ode_brino@ensta.fr}}}}$|$
-    \href{https://linkedin.com/in/odebrino}{\underline{linkedin.com/in/odebrino}}
+  \textbf{\huge \CandidateName} \\ \vspace{2pt}
+  \small \CandidateLocation{} \textbar{} \CandidateCitizenship{} citizenship \\ \vspace{2pt}
+  \small
+  \href{\CandidatePhoneURL}{\CandidatePhone} \textbar{}
+  \href{mailto:\CandidateEmail}{\CandidateEmailText} \textbar{}
+  \href{\CandidateLinkedInURL}{\CandidateLinkedInText} \textbar{}
+  \href{\CandidateGitHubURL}{\CandidateGitHubText}
+\vspace{2pt}\\
+  \small Six-month ENSTA final-year research internship starting in March 2027
 \end{center}
 
-%-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {ENSTA --- National School of Advanced Techniques}{Brest, France}
-    {Engineering Degree --- Observation Systems \& AI (expected 2027)}{2025 -- Present}
-    \resumeItemListStart
-      \resumeItem{Coursework: Artificial Intelligence \& Decision Support.}
-    \resumeItemListEnd
+\cvSection{Education}
+\begin{cvEntries}
+  \cvEducationEntry
+    {\CandidateSchool{} --- \CandidateSchoolGroup}{\CandidateSchoolLocation}
+    {\CandidateDegree{} --- \CandidateSpecialization; expected \CandidateSchoolGraduation}{\CandidateSchoolDates}
+    {Selective French engineering school (\textit{grande \'ecole}); concurrent studies with UFRGS.}
+  \begin{cvBullets}
+    \cvItem{Relevant coursework: Machine Learning, Deep Learning, Numerical Optimization \& Markov Models, Digital Image Processing, Software Design, and Decision Theory \& Estimation.}
+  \end{cvBullets}
 
-  \resumeSubheading
-    {Federal University of Rio Grande do Sul (UFRGS)}{Porto Alegre, RS, Brazil}
-    {Double degree --- BSc in Electrical Engineering (expected 2028)}{2023 -- Present}
-    \resumeItemListStart
-      \resumeItem{Coursework: Signals and Systems.}
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
+  \cvEntry
+    {\CandidateBachelorsSchool}{\CandidateBachelorsLocation}
+    {\CandidateBachelorsDegree; expected \CandidateBachelorsGraduation}{\CandidateBachelorsDates}
+  \begin{cvBullets}
+    \cvItem{Relevant coursework: Data Structures, Algorithms \& Programming, Object-Oriented Programming, Probability \& Statistics, Linear Algebra, and Numerical Calculus.}
+  \end{cvBullets}
+\end{cvEntries}
 
-%-----------PROJECTS-----------
-\section{Projects}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-  {\textbf{Augmented Reality Simulation for Medical Training (ENSTA)} $|$ \emph{C\#, C++, Python}}{2025 -- Present}
-  \resumeItemListStart
-    \resumeItem{Designed a real-time perception pipeline for tracking and image analysis; trained and validated ML components in Python (PyTorch).}
-    \resumeItem{Developed native C++ modules for real-time 6D pose estimation/tracking prototypes and integrated them into Unity as a native plugin via C\# interop (bindings), iterating through testing to improve runtime stability and robustness.}
-  \resumeItemListEnd
+\cvSection{Research Experience}
+\begin{cvEntries}
+\cvEntry{NATO Science \& Technology Organization (STO)}{La Spezia, Italy}
+{Research Intern --- Centre for Maritime Research and Experimentation (CMRE)}{May--September 2026}
+\setcounter{cvarticle}{0}
+% CMRE evidence: G-H support the Bayesian implementation and marginalization;
+% I-J support group-averaged AUC, bootstrap ranking gains, and the absence
+% of stable gains from richer physical-quality/nonlinear specifications.
+% A/E support the delivered pipeline and 64 paired experimental conditions;
+% F supports the 48.45% response-prediction RMSE reduction under nested selection.
+% Candidate confirms PyTorch/TensorFlow and Slurm/HPC use at NATO,
+% 24 October 2026, in response to the training/inference/compute-workflow query.
+\begin{cvArticle}[first author; in preparation]{Hierarchical Bayesian Modeling of Detection Success}
+  \cvItem{Implemented \textbf{hierarchical Bayesian probit models} in Python for object-detection success, combining partial pooling and MCMC with analytical marginalization for predictions in unseen data-collection groups.}
+  \cvItem{Achieved \textbf{group-averaged ROC AUC 0.734} on 21 held-out groups; nested validation and paired group bootstraps supported ranking gains over a prevalence baseline, while richer features added no stable benefit.}
+\end{cvArticle}
+\begin{cvArticle}[first author; in preparation]{Modeling Detector Performance Under Image Degradation}
+  \cvItem{Built a Python/PyTorch pipeline for YOLO training and evaluation on Slurm-managed HPC; ran paired tests across \textbf{64 conditions} of resolution, blur, and noise, delivered reusable code, and presented findings at CMRE.}
+  \cvItem{Calibrated a nonlinear model of detector performance, reducing prediction \textbf{RMSE by 48\% (\mbox{0.237 to 0.122})} versus reusing the source coefficients unchanged; evaluated with fully nested selection on held-out noise levels.}
+\end{cvArticle}
+\end{cvEntries}
+\cvSection{Selected Projects}
+\begin{cvEntries}
+\cvProject{\textbf{FX Risk Forecasting} \textbar{} \emph{Python, C++, SQL, DuckDB}}{2026--Present}
+\begin{cvBullets}
+  \cvItem{Built a Python/SQL (DuckDB) pipeline for ECB exchange rates and implemented HMM, Student-t GARCH, and independent-mixture models to test whether volatility regimes improve forecasts of currency-return distributions.}
+  \cvItem{Implemented a \textbf{C++ HMM filter} with Python bindings and numerical parity checks; built rolling out-of-sample evaluation with training-cutoff checks and paired block-bootstrap comparisons.}
+\end{cvBullets}
+\cvProject{\textbf{Augmented Reality for Surgical Training} \textbar{} \emph{Python, C++, C\#, Unity}}{2025--2026}
+\begin{cvBullets}
+  \cvItem{Built a computer-vision pipeline for HRIACT -- French Armed Forces hospital, mapping \textbf{physical scalpel movements} from Python/C++ to a virtual instrument in a Unity/C\# surgical-training simulation.}
+\end{cvBullets}
+\cvProject{\textbf{3D Mapping with Detection and SLAM} \textbar{} \emph{Python, YOLO}}{2024--2025}
+\begin{cvBullets}
+  \cvItem{Co-developed an EKF-SLAM pipeline fusing stereo visual odometry, YOLO detections, and GPS for 3D mapping and trajectory estimation; coauthored the \textbf{published CBA 2026 preprint} (\href{https://ojs.sba.org.br/index.php/cba/article/download/6678/6025}{\underline{paper; English abstract}}).}
+\end{cvBullets}
+\end{cvEntries}
+\cvSection{Technical Skills}
+% Technical stack selected from Shared evidence and the candidate's explicit
+% confirmation of Git/GitHub/GitLab, Bash/shell, pytest, JupyterLab,
+% PyTorch/TensorFlow, MATLAB/Simulink, LaTeX, SSH/Slurm/HPC and bindings,
+% 24 October 2026. Linux and Neovim were confirmed in the preceding request.
+% Select pybind11 from the confirmed binding tools; no project-specific
+% attribution, measured speedup or proficiency level is inferred.
+% Compact methods row restored from CMRE/HMM, sensor-fusion methods and
+% candidate-confirmed numerical-optimization coursework. No proficiency scale.
+% SLAM publication link verified on the official SBA CBA page, 24 October 2026:
+% https://ojs.sba.org.br/index.php/cba/article/view/6678 (Rafael O. Brino listed).
+\begin{cvSkills}
+  \cvSkill{Programming}{Python, C++, SQL, Bash, MATLAB, C\#}
+  \cvSkill{ML \& Data}{PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, pandas, OpenCV, DuckDB}
+  \cvSkill{Modeling \& Inference}{Bayesian inference, MCMC, HMMs, EM, nonlinear optimization, Kalman filtering}
+  \cvSkill{Development \& HPC}{Git (GitHub/GitLab), Linux, pytest, pybind11, SSH, Slurm, Neovim}
+  \cvSkill{Research \& Simulation}{JupyterLab, Unity, Simulink, Matplotlib, LaTeX}
+\end{cvSkills}
 
-
-  \resumeProjectHeading
-    {\textbf{Waveforms \& Modulations (ENSTA)} $|$ \emph{MATLAB, Signal Processing}}{Jan.\ 2026}
-    \resumeItemListStart
-      \resumeItem{Simulated an end-to-end digital transmission chain (OOK \& DSSS) over an AWGN channel and measured BER across operating conditions.}
-      \resumeItem{Built reusable modules for modulation/demodulation, spectral analysis (FFT/fftshift), and BER evaluation.}
-    \resumeItemListEnd
-
-  \resumeProjectHeading
-    {\textbf{Mass Estimation via Computer Vision (UFRGS)} $|$ \emph{Python, PyTorch, OpenCV}}{2024 -- 2025}
-    \resumeItemListStart
-      \resumeItem{Built a supervised regression model to estimate object mass from images; created the dataset and applied advanced preprocessing.}
-      \resumeItem{Performed evaluation and error analysis to improve stability and reproducibility.}
-    \resumeItemListEnd
-
-  \resumeProjectHeading
-    {\textbf{Forest Mapping with Detection and SLAM (UFRGS)} $|$ \emph{Python, OpenCV}}{2024 -- 2025}
-    \resumeItemListStart
-      \resumeItem{Implemented a 3D mapping pipeline combining stereo visual odometry, 3D triangulation, and EKF-SLAM.}
-      \resumeItem{Validated tracking stability and trajectory accuracy across multiple scenarios under near-embedded constraints.}
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%-----------EXPERIENCE-----------
-\section{Professional Experience}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Project Contributor}{2024 -- 2025}
-    {AgroView (Startup)}{Porto Alegre, RS, Brazil}
-    \resumeItemListStart
-      \resumeItem{Built a computer vision prototype for early detection of stress and deterioration in lettuce plants (Python, OpenCV).}
-      \resumeItem{Improved prediction reliability through experimental validation in real conditions and iterative pipeline refinement.}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Volunteer}{2019 -- 2025}
-    {High School (CEAT)}{Lajeado, RS, Brazil}
-    \resumeItemListStart
-      \resumeItem{President (2022): Led the organization of the school’s annual Gincana—a student-run competition that builds leadership and organizational skills through theoretical and hands-on challenges—and, as a result, it enables yearly food and hygiene donation drives that exceed half a ton, as well as large-scale blood donation campaigns.}
-
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%-----------TECHNICAL SKILLS-----------
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{
-    \textbf{Programming}{: Python, MATLAB, C, C++, C\#, Java} \\
-    \textbf{Computer Vision \& ML}{: YOLO (detection/segmentation/training), OpenCV (image processing, tracking), Vision Transformers, supervised regression} \\
-    \textbf{Signal Processing}{: OOK, DSSS, AWGN, FFT/fftshift spectral analysis, BER evaluation} \\
-    \textbf{SLAM \& Estimation}{: stereo visual odometry, 3D triangulation, EKF-SLAM, sensor fusion} \\
-    \textbf{Tools}{: Unity, Git/GitHub, Linux, Bash, LaTeX, Jupyter, VS Code, PyCharm, CLion, Rider}
-  }}
+\cvSection{Languages}
+\begin{itemize}[left-margin=0.15in,item-label={}]
+  \small\item{Portuguese: Native \textbar{} English: Fluent \textbar{} French: Advanced \textbar{} German: Elementary}
 \end{itemize}
-
-%-----------LANGUAGES-----------
-\section{Languages}
-\begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{
-    English: Bilingual - Fluent \ $|$ French: Advanced \ $|$ German: Elementary \ $|$ Portuguese: Native
-  }}
-\end{itemize}
-
-
-
-
-
 \end{document}
-
